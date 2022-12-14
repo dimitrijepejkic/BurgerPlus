@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Burger+</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="assets/img/favicon.png" />
+    <meta name="description" content="Najbolji burgeri u Beogradu!" />
+    <meta
+      name="keywords"
+      content="burger, burger+, hamburger, pileci burger, cheeseburger, vegeterijanksi burger, burgeri"
+    />
+    <meta name="author" content="Dimitrije Pejkić" />
+    <link rel="stylesheet" type="text/css" href="assets/css/site.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/template.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/jquery.datetimepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <style>
+      body,
+      h1,
+      h5 {
+        font-family: "Raleway", sans-serif;
+      }
+      body,
+      html {
+        height: 100%;
+      }
+      .bgimg {
+        background-image: url("assets/img/background.jpg");
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/js/jquery.datetimepicker.full.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/js/jquery.datetimepicker.js"
+    ></script>
+    <script type="text/javascript" src="assets/js/site.js"></script>
+  </head>
+  <body>
+    <div class="bgimg w3-display-container w3-text-white">
+      <div id="logo" class="w3-display-topright w3-jumbo">
+        <a href="index.html">Burger<span>+</span></a>
+      </div>
+      <div class="w3-display-topleft w3-container w3-xlarge">
+        <p>
+          <button
+            onclick="document.getElementById('menu').style.display='block'"
+            class="w3-button w3-black same-width"
+          >
+            Meni
+          </button>
+        </p>
+        <p>
+          <button
+            onclick="document.getElementById('contact').style.display='block'"
+            class="w3-button w3-black same-width"
+          >
+            Kontakt
+          </button>
+        </p>
+        <p>
+          <button
+            onclick="document.getElementById('author').style.display='block'"
+            class="w3-button w3-black same-width"
+          >
+            O autoru
+          </button>
+        </p>
+      </div>
+    </div>
+    <!-- Menu Modal -->
+    <div id="menu" class="w3-modal">
+      <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black w3-display-container">
+          <span
+            onclick="document.getElementById('menu').style.display='none'"
+            class="w3-button w3-display-topright w3-large"
+            >x</span
+          >
+          <input
+            type="text"
+            id="search"
+            onchange="filterContent()"
+            placeholder="Pretraga"
+          />
+          <div id="menuContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact" class="w3-modal">
+      <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black">
+          <span
+            onclick="document.getElementById('contact').style.display='none'"
+            class="w3-button w3-display-topright w3-large"
+            >x</span
+          >
+          <h1>Kontakt</h1>
+        </div>
+        <div class="w3-container">
+          <p>Rezerviši sto, pitaj za današnji specijal ili pošalji poruku:</p>
+          <form action="/action_page.php" target="_blank">
+            <p>
+              <input
+                id="customer-name"
+                class="w3-input w3-padding-16 w3-border"
+                type="text"
+                placeholder="Ime i prezime"
+                required
+                name="Name"
+                onchange="validateName()"
+              />
+            </p>
+            <p>
+              <input
+                id="number-of-people"
+                class="w3-input w3-padding-16 w3-border"
+                type="number"
+                placeholder="Broj gostiju"
+                required
+                name="People"
+                onchange="validateNumber()"
+              />
+            </p>
+            <p>
+              <input
+                id="datetimepicker"
+                class="w3-input w3-padding-16 w3-border"
+                type="text"
+                placeholder="Datum i vreme"
+                required
+                onchange="validateDate()"
+              />
+            </p>
+            <p>
+              <input
+                class="w3-input w3-padding-16 w3-border"
+                type="text"
+                placeholder="Poruka \ Specijalni zahtevi"
+                name="Message"
+              />
+            </p>
+            <p>
+              <button class="w3-button" type="submit">POŠALJI PORUKU</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Author Modal-->
+    <div id="author" class="w3-modal">
+      <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black">
+          <span
+            onclick="document.getElementById('author').style.display='none'"
+            class="w3-button w3-display-topright w3-large"
+            >x</span
+          >
+          <h1>O autoru</h1>
+        </div>
+        <div class="w3-container">
+          <div id="display-flex">
+            <figure>
+              <img
+                src="assets/img/Dimitrije_Pejkic_1.jpg"
+                height="180px"
+                alt="Dimitrije Pejkic"
+              />
+              <figcaption>Dimitrije Pejkić 169/21</figcaption>
+            </figure>
+            <div id="display-block">
+              <p>
+                Moje ime je Dimitrije Pejkić. Rođen sam 2002. godine u Negotinu.
+                Trenutno sam na studijama Visoke ICT škole. Slobodno vreme
+                provodim igrajući video igre.
+              </p>
+              <h3>Kontakt</h3>
+              <p>
+                Ukoliko želite da stupite u kontakt sa mnom, to možete uraditi
+                putem mejla:
+                dimitrije&#46;pejkic&#46;169&#46;21&#64;ict&#46;edu&#46;rs
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="error" class="w3-modal">
+      <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black w3-display-container">
+          <span
+            onclick="document.getElementById('error').style.display='none'"
+            class="w3-button w3-display-topright w3-large"
+            >x</span
+          >
+          <div id="errorContent"></div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-display-bottomleft w3-container white-font">
+      <p class="w3-xlarge">ponedeljak - petak 10-23 | subota 14-02</p>
+      <p class="w3-large">Zdravka Čelara 16, Beograd</p>
+    </div>
+    <footer>
+      <div class="center-block">
+        <div id="social">
+          <ul>
+            <li>
+              <a
+                href="https://www.facebook.com/dimitrije.pejkic/"
+                target="_blank"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/pejkicdimitrije/"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+            <li>
+              <a href="root/sitemap.xml" target="_blank">
+                <i class="fas fa-sitemap"></i>
+              </a>
+            </li>
+            <li>
+              <a href="root/rss.xml" target="_blank">
+                <i class="fas fa-rss"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                <i class="fas fa-file"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <p>Copyright&nbsp;&copy;&nbsp;2022&nbsp;Dimitrije Pejkić</p>
+      </div>
+    </footer>
+  </body>
+</html>

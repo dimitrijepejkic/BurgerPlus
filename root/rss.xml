@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>Burger+</title>
+  <link>https://deepee11.github.io/pejkicdimitrije/</link>
+  <description>RSS feed Brurger+</description>
+  <item>
+    <title>Novi proizvodi</title>
+    <link>https://deepee11.github.io/pejkicdimitrije/pages/galerija.html</link>
+    <description>Budite u toku sa novim proizvodima!</description>
+  </item>
+</channel> 
+
+</rss> 
