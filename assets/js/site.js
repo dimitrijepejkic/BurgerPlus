@@ -1,4 +1,3 @@
-//
 function validateName() {
   var customerName = $("#customer-name")[0].value;
   var nameRGEX = /([A-Z])\w+/;
@@ -83,8 +82,8 @@ var menuContent = [
     description: "Piletina, luk, majonez",
   },
   {
-    href: "assets/img/mini-burgeri.jpg",
-    src: "assets/img/mini-burgeri.jpg",
+    href: "assets/img/Mini-burgeri.jpg",
+    src: "assets/img/Mini-burgeri.jpg",
     alt: "Mini burgeri",
     name: "Mini burgeri",
     price: "8.00$",
